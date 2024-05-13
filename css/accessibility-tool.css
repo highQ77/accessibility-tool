@@ -1,0 +1,84 @@
+.acc-img-wrapper {
+    position: fixed;
+    bottom: 0px;
+    width: 42px;
+    height: 42px;
+    z-Index: 99;
+    border-radius: 100%;
+    background-color: hsl(50 100% 1000%);
+    margin: 16px;
+}
+
+.acc-img {
+    width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
+    background-image: url(/img/accessibility.png);
+}
+
+#acc-tool {
+    background-color: rgba(0, 0, 0, 0.88);
+    position: fixed;
+    top: 100vh;
+    /* top: 0px; */
+    left: 0px;
+    width: 300px;
+    height: 100vh;
+    transition: top .5s;
+    z-index: 1000;
+}
+
+#acc-tool:hover {
+    top: 0px;
+}
+
+#acc-tool .acc-title {
+    font-weight: bolder;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.acc-row {
+    --gap: 4px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.acc-row-1>.acc-btn {
+    width: 100%;
+}
+
+.acc-row-2>.acc-btn {
+    width: calc((100% - var(--gap)) / 2);
+}
+
+.acc-row-3>.acc-btn {
+    width: calc((100% - var(--gap) * 2) / 3);
+}
+
+.acc-btn {
+    width: 100%;
+    color: rgb(104, 104, 104);
+    border: 1px solid rgb(145, 147, 147);
+    border-bottom: 3px solid rgb(210, 211, 208);
+    border-radius: 3px;
+    padding: 4px 0px;
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+}
+
+.acc-btn-kb {
+    width: 100%;
+    color: rgb(195, 195, 195);
+    border: 1px solid rgb(82, 82, 82);
+    border-radius: 3px;
+    padding: 4px 0px;
+    font-size: 14px;
+    background-color: black;
+}
+
+.acc-btn:hover {
+    opacity: .9;
+}

@@ -1,0 +1,47 @@
+/* ---------------------- additional */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+
+/* === site preference === */
+
+/* -- banner */
+.gradient-background {
+    background: linear-gradient(212deg, #b59109, #8d4a5a, #820e0e, #610e82, #b59109);
+    background-size: 240% 240%;
+    animation: gradient-animation 10s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* body */
+body {
+    color: #333;
+}
+
+.temp {
+    background-color: #333;
+    text-decoration: line-through;
+}
+
+.link {
+    color: #8d4a5a;
+}
