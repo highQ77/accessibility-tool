@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         measureTool: [0, 1],
         zIndexSearch: [0, 1],
         bigCursor: [0, 1],
+        bigCursorBlack: [0, 1],
         imgInspector: [0, 1],
         highlightLink: [0, 1],
         muteVoice: [0, 1],
@@ -870,6 +871,58 @@ document.addEventListener("DOMContentLoaded", (event) => {
         } else {
             document.body.style.cursor = ''
             document.getElementById('bigCursor').remove()
+        }
+    })
+
+    // enlarge cursor - black
+    window.bigCursorBlack = genStateLoopFunc(R.bigCursor, value => {
+        let cs = document.getElementById('bigCursorBlack')
+        if (value) {
+            if (!cs) {
+                let canvas = document.createElement('canvas')
+                canvas.id = 'bigCursorBlack'
+                canvas.width = 200;
+                canvas.height = 200;
+                canvas.style = `
+                    position: fixed;
+                    left: 0px;
+                    top: 0px;
+                    pointerEvents: none;
+                    z-index: 9999;
+                `
+                document.body.style.cursor = 'none'
+                let polygon = [100, 25, 50, 150, 100, 125, 150, 150];
+                let ctx = canvas.getContext('2d');
+                // ctx.fillStyle = 'rgba(0,0,0,.3)'
+                // ctx.fillRect(0, 0, 200, 200);
+                // ctx.lineCap = ''
+                // ctx.lineJoin = ''
+                ctx.lineWidth = 7
+                ctx.scale(.7, .7)
+                ctx.translate(-82, 59)
+                ctx.rotate(-45 * Math.PI / 180)
+                ctx.beginPath();
+                ctx.moveTo(polygon[0], polygon[1]);
+                for (item = 2; item < polygon.length - 1; item += 2) {
+                    ctx.lineTo(polygon[item], polygon[item + 1])
+                }
+                ctx.closePath();
+                ctx.fillStyle = 'rgba(0,0,0,.9)'
+                ctx.fill();
+                ctx.strokeStyle = 'white'
+                ctx.stroke();
+                document.body.append(canvas)
+                const update = () => {
+                    canvas.style.left = cx + 5 + 'px';
+                    canvas.style.top = cy + 5 + 'px';
+                    canvas && requestAnimationFrame(update)
+                }
+                requestAnimationFrame(update)
+            }
+
+        } else {
+            document.body.style.cursor = ''
+            document.getElementById('bigCursorBlack').remove()
         }
     })
 
