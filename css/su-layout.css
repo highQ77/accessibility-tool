@@ -57,9 +57,9 @@
 
 /* global variable you can set */
 :root {
-    --su-layout-gutter: 4px;
-    --su-layout-col-bg-color: rgba(0, 0, 0, .05);
-    --su-layout-col-border: 0px solid gray;
+    --su-layout-gutter: 10px;
+    --su-layout-col-bg-color: rgba(0, 0, 0, .1);
+    --su-layout-col-border: 1px solid gray;
     --su-layout-row-bound: 1023px;
 }
 
@@ -87,7 +87,7 @@ html *:after {
     padding: 0;
     column-gap: var(--su-layout-gutter);
     row-gap: var(--su-layout-gutter);
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .su-row>* {
@@ -97,6 +97,7 @@ html *:after {
     flex-shrink: 1;
     background-color: var(--su-layout-col-bg-color);
     border: var(--su-layout-col-border);
+    max-width: var(--su-cell-width);
 }
 
 .su-align-box {
@@ -192,7 +193,6 @@ html *:after {
 }
 
 @media (min-width: 0px) {
-
     .su-row>.su-col-sm-12 {
         --su-cell-width: calc(100.000%);
     }
